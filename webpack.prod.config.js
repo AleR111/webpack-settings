@@ -1,52 +1,38 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
-  entry: {
-    main: ["@babel/polyfill", "./src/public/index.ts"],
-  },
+  entry: ["@babel/polyfill", "./src/index.ts"],
   output: {
-    path: path.join(__dirname, "dist/public"),
-    publicPath: "/",
-    filename: "js/[name].js",
+    path: path.join(__dirname, "dist"),
+    filename: "bundle.js",
   },
-  target: "web",
-  devtool: "#source-map",
   optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true,
-      }),
-      new OptimizeCssAssetsPlugin({}),
-    ],
+    minimize: true,
+    minimizer: [new TerserPlugin()],
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
         loader: "babel-loader",
+        exclude: /node_modules/,
       },
       {
-        test: /\.html$/,
-        use: [
-          {
-            loader: "html-loader",
-            options: {
-              minimize: true,
-            },
-          },
-        ],
+        test: /\.jsx$/,
+        loader: "babel-loader",
+        exclude: /node_modules/,
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        test: /\.ts$/,
+        loader: "ts-loader",
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(less|css)$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
       },
       {
         test: /\.(png|jpg|svg|gif)$/,
@@ -59,30 +45,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/public/index.html",
-      filename: "index.html",
-      excludeChunks: ["server"],
-    }),
-    new HtmlWebpackPlugin({
-      template: "src/public/catalog.html",
-      filename: "catalog.html",
-      excludeChunks: ["server"],
-    }),
-    new HtmlWebpackPlugin({
-      template: "src/public/registration.html",
-      filename: "registration.html",
-      excludeChunks: ["server"],
-    }),
+          template: path.resolve(__dirname, "./src/index.html")
+        }
+    ),
     new MiniCssExtractPlugin({
       filename: "style/[name].css",
-      chunkFilename: "[id].css",
     }),
-    new CopyPlugin([
-      {
-        from: "src/public/img",
-        to: "img/[name].[ext]",
-        toType: "template",
-      },
-    ]),
   ],
 };
