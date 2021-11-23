@@ -10,9 +10,7 @@
     "prod": "rimraf dist && webpack --mode production --config webpack.prod.config.js",
     "serve": "rimraf dist && webpack serve --mode development --config webpack.dev.config.js"
   },
-  "dependencies": {
-    "postcss-loader": "^6.2.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/polyfill": "^7.12.1",
@@ -22,6 +20,7 @@
     "css-loader": "^6.5.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "postcss-loader": "^6.2.0",
     "less-loader": "^10.2.0",
     "mini-css-extract-plugin": "^2.4.5",
     "rimraf": "^3.0.2",
