@@ -21,5 +21,17 @@ module.exports = {
         "@typescript-eslint"
     ],
     rules: {
+        "jsx-a11y/label-has-for": [
+            2,
+            {
+                required: {
+                    every: [
+                        "nesting",
+                        "id"
+                    ]
+                },
+                allowChildren: true
+            }
+        ]
     }
 };
