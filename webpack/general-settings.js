@@ -1,10 +1,11 @@
-import path from "path";
-import HtmlWebpackPlugin from "html-webpack-plugin";
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 export const generalSettings = {
     paramsEntryOutput: {
         entry: ["@babel/polyfill", "./src/index.ts"],
         output: {
+            // eslint-disable-next-line no-undef
             path: path.join(__dirname, "dist"),
             filename: "bundle.js",
         },
@@ -30,6 +31,7 @@ export const generalSettings = {
     ],
     plugins: [
         new HtmlWebpackPlugin({
+            // eslint-disable-next-line no-undef
                 template: path.resolve(__dirname, "./src/index.html")
             }
         ),
