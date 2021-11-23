@@ -3,18 +3,25 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   devServer: {
-    port: 8000,
-    historyApiFallback: true,
-    hot: true,
+    port: 8080,
   },
-  entry: path.resolve(__dirname, "./src/index.ts"),
+  entry: ["@babel/polyfill", "./src/index.ts"],
   output: {
     path: path.join(__dirname, "dist"),
-    publicPath: "/",
     filename: "bundle.js",
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        loader: "babel-loader",
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.jsx$/,
+        loader: "babel-loader",
+        exclude: /node_modules/,
+      },
       {
         test: /\.ts$/,
         loader: "ts-loader",
