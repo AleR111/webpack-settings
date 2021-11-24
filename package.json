@@ -6,9 +6,9 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "dev": "rimraf dist && cross-env NODE_ENV=development webpack --config webpack.dev.config.js",
-    "prod": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack.prod.config.js",
-    "serve": "rimraf dist && cross-env NODE_ENV=development webpack serve --config webpack.dev.config.js"
+    "dev": "rimraf dist && cross-env NODE_ENV=development webpack --config webpack/webpack.dev.config.js",
+    "prod": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack/webpack.prod.config.js",
+    "serve": "rimraf dist && cross-env NODE_ENV=development webpack serve --config webpack/webpack.dev.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
