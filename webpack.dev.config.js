@@ -10,7 +10,7 @@ module.exports = {
       ...generalSettings.moduleRules,
       {
         test: /\.(less|css)$/,
-        use: ["style-loader', 'css-loader', 'postcss-loader', 'sass-loader"]
+        use: ["style-loader", "css-loader", "postcss-loader", "less-loader"]
       }
     ],
   },

@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   paramsEntryOutput: {
-    entry: ["@babel/polyfill", path.resolve(process.cwd(), "./src/index.ts")],
+    entry: ["@babel/polyfill", path.resolve(process.cwd(), "./src/index.tsx")],
       output: {
         path: path.join(process.cwd(), "dist"),
         filename: "bundle.js",
@@ -16,7 +16,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         loader: "ts-loader",
         exclude: /node_modules/,
       },
