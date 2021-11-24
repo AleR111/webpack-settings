@@ -10,17 +10,17 @@ module.exports = {
     module: {
       rules: [
         {
-          test: /\.jsx?$/,
+          test: /\.(js|jsx)$/,
           loader: "babel-loader",
           exclude: /node_modules/,
         },
         {
-          test: /\.tsx?$/,
+          test: /\.(ts|tsx)$/,
           loader: "ts-loader",
           exclude: /node_modules/,
         },
         {
-          test: /\.(png|jpg|svg|gif)$/,
+          test: /\.(ico|jp?g|png|gif|eot|otf|webp|svg|ttf|woff)(\?.*)?$/,
           loader: "file-loader",
           options: {
             name: "img/[name].[ext]",
