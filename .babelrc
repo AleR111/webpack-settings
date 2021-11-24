@@ -2,6 +2,13 @@
   "presets": [
     "@babel/preset-env",
     "@babel/present-react",
-    "@babel/preset-typescript"
+    [
+      "@babel/preset-typescript",
+      {
+      "isTSX": true,
+      "allowNamespaces": true,
+      "allExtensions": true
+      }
+    ]
   ]
 }
