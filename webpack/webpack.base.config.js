@@ -30,7 +30,7 @@ module.exports = {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.resolve(process.cwd(), "./src/index.html")
+        template: path.resolve(process.cwd(), "./public/index.html")
       }),
     ],
 }
