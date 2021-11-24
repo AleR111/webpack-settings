@@ -1,4 +1,4 @@
-const { generalSettings } = require("./webpack/general-settings");
+const generalSettings = require("./webpack/general-settings");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 

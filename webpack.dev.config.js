@@ -1,4 +1,4 @@
-const { generalSettings } = require("./webpack/general-settings");
+const generalSettings= require("./webpack/general-settings");
 
 module.exports = {
   devServer: {

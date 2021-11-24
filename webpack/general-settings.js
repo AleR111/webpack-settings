@@ -1,11 +1,11 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-export const generalSettings = {
+module.exports = {
   paramsEntryOutput: {
-    entry: ["@babel/polyfill", "./src/index.ts"],
+    entry: ["@babel/polyfill", path.resolve(process.cwd(), "./src/index.ts")],
       output: {
-        path: path.join(__dirname, "dist"),
+        path: path.join(process.cwd(), "dist"),
         filename: "bundle.js",
       },
     },
@@ -30,7 +30,7 @@ export const generalSettings = {
     ],
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, "./src/index.html")
+        template: path.resolve(process.cwd(), "./src/index.html")
       }),
     ],
 }
