@@ -1,8 +1,10 @@
 import React from "react";
-import "./app.less"
+import { Home } from "./pages/home";
 
 export const App = () => {
-    return (
-        <h1 className={"test"}>hi</h1>
-    )
-}
+  return (
+    <div>
+      <Home />
+    </div>
+  );
+};
