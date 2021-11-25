@@ -1,7 +1,6 @@
-const { merge } = require('webpack-merge')
-const baseWebpackConfig = require('./webpack.base.config')
-
-const styleLoaders = ["style-loader", "css-loader", "postcss-loader",]
+const { merge } = require("webpack-merge")
+const baseWebpackConfig = require("./webpack.base.config")
+const styleRules = require("./utils/styleRules")
 
 module.exports = merge(baseWebpackConfig, {
   devServer: {
@@ -9,14 +8,7 @@ module.exports = merge(baseWebpackConfig, {
   },
   module: {
     rules: [
-      {
-        test: /\.(sa|sc|c)ss$/i,
-        use: [...styleLoaders, "sass-loader"],
-      },
-      {
-        test: /\.less$/i,
-        use: [...styleLoaders, "less-loader"],
-      },
+      ...styleRules(),
     ],
   },
   plugins: [],

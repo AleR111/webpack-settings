@@ -2,8 +2,7 @@ const { merge } = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.config')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-
-const styleLoaders = [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader",]
+const styleRules = require('./utils/styleRules')
 
 module.exports = merge(baseWebpackConfig, {
   optimization: {
@@ -12,14 +11,7 @@ module.exports = merge(baseWebpackConfig, {
   },
   module: {
     rules: [
-      {
-        test: /\.(sa|sc|c)ss$/i,
-        use: [...styleLoaders, "sass-loader"],
-      },
-      {
-        test: /\.less$/i,
-        use: [...styleLoaders, "less-loader"],
-      },
+      ...styleRules('prod'),
     ],
   },
   plugins: [

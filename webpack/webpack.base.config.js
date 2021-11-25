@@ -7,6 +7,9 @@ module.exports = {
       path: path.join(process.cwd(), "dist"),
       filename: "bundle.js",
     },
+    resolve: {
+      extensions: [".js", ".jsx", ".ts", ".tsx"]
+    },
     module: {
       rules: [
         {
