@@ -1,9 +1,12 @@
 import React from "react";
-import { Home } from "./pages/home";
+import "./app.less";
+import { Home } from "./pages";
+import { Header } from "./components";
 
 export const App = () => {
   return (
-    <div>
+    <div className={"container"}>
+      <Header />
       <Home />
     </div>
   );
