@@ -1,11 +1,11 @@
 import React from "react";
-import { Test } from "../../components";
+import { Greeting } from "../../components";
 import "./home.less";
 
 export const Home = () => {
   return (
     <div>
-      <Test />
+      <Greeting />
     </div>
   );
 };
