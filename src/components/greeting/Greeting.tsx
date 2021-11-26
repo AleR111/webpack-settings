@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { Input, Button, Modal } from "antd";
-import "./test.less";
+import "./greeting.less";
 
-export const Greeting = () => {
-  const [name, setName] = useState("");
-  const [isModalVisible, setIsModalVisible] = useState(false);
+export const Greeting: React.FC = () => {
+  const [name, setName] = useState<string>("");
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
-  const showModal = () => {
+  const showModal = (): void => {
     setIsModalVisible(true);
   };
 
-  const handleCancel = () => {
+  const handleCancel = (): void => {
     setIsModalVisible(false);
   };
   return (

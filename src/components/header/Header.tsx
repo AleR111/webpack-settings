@@ -2,8 +2,8 @@ import React from "react";
 import "./header.less";
 import { PageHeader, Button } from "antd";
 
-export const Header = () => {
-  const headerButtons = ["home", "about"];
+export const Header: React.FC = () => {
+  const headerButtons: string[] = ["home", "about"];
 
   return (
     <div className="site-page-header-ghost-wrapper">
