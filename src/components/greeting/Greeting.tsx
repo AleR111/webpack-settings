@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Input, Button, Modal } from "antd";
-import "./greeting.less";
 
 export const Greeting: React.FC = () => {
   const [name, setName] = useState<string>("");

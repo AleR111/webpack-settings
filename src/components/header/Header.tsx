@@ -1,5 +1,5 @@
 import React from "react";
-import "./header.less";
+import styles from "./header.module.less";
 import { PageHeader, Button } from "antd";
 
 export const Header: React.FC = () => {
@@ -8,7 +8,7 @@ export const Header: React.FC = () => {
   return (
     <div className="site-page-header-ghost-wrapper">
       <PageHeader
-        className={"header"}
+        className={styles.header}
         title="name page"
         extra={headerButtons.map((el) => (
           <Button key={el}>{el}</Button>
