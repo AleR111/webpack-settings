@@ -22,4 +22,4 @@ class Request {
     };
 }
 
-export const request = new Request();
+export const requests = new Request();
