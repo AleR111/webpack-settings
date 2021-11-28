@@ -1,8 +1,26 @@
 import axios from "axios";
 
+export interface IApiClient {
+  post<TRequest, TResponse>(
+    path: string,
+    object: TRequest,
+    // config?: RequestConfig
+  ): Promise<TResponse>;
+  patch<TRequest, TResponse>(
+    path: string,
+    object: TRequest
+  ): Promise<TResponse>;
+  put<TRequest, TResponse>(path: string, object: TRequest): Promise<TResponse>;
+  get<TResponse>(path: string): Promise<TResponse>;
+}
+
 class Request {
-  async get(url: string, config?: object): Promise<any> {
+  async get<TResponse>(url: string, config?: object): Promise<TResponse> {
+    try {
     return axios.get(url, config);
+    } catch (e) {
+return Promise.reject(e)
+    }
   }
 
   async post(utl: string, body: object, config?: object): Promise<string> {
