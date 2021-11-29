@@ -2,15 +2,14 @@ import React from "react";
 import styles from "./app.module.less";
 import { Home } from "./pages";
 import { Header } from "./components";
-import { WrappForm } from "./ui/form/wrappForm";
-import { Form, Input, Button, Checkbox } from "antd";
+import { WrappForm, FormItem, WrappInput } from "./ui";
 
 export const App: React.FC = () => {
   return (
     <div className={styles.container}>
       <Header />
       <WrappForm onFinish={() => console.log(1231)}>
-        <Form.Item
+        <FormItem
           label="Username"
           name="username"
           rules={[
@@ -20,8 +19,8 @@ export const App: React.FC = () => {
             },
           ]}
         >
-          <Input />
-        </Form.Item>
+          <WrappInput />
+        </FormItem>
       </WrappForm>
       <Home />
     </div>

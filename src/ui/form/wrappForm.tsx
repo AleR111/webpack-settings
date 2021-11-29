@@ -1,21 +1,8 @@
 import React from "react";
-import "antd/dist/antd.css";
 import { Form } from "antd";
-import { ColProps } from "antd/lib/grid";
+import { WrapFormProps } from "./interface";
+import {FormItemProps} from "antd/lib/form";
 import styles from "./wrappForm.module.less";
-
-export type FinishCallback = (values: any) => void;
-
-export interface WrapFormProps {
-  name?: string;
-  labelCol?: ColProps;
-  wrapperCol?: ColProps;
-  initialValues?: Record<string, any>;
-  onFinish?: FinishCallback;
-  onFinishFailed?: FinishCallback;
-  autoComplete?: string | undefined;
-  children: React.ReactNode;
-}
 
 export const WrappForm: React.FC<WrapFormProps> = ({
   name,
@@ -40,5 +27,18 @@ export const WrappForm: React.FC<WrapFormProps> = ({
     >
       {children}
     </Form>
+  );
+};
+
+export const FormItem: React.FC<FormItemProps> = ({label, name, rules, children}) => {
+  return (
+    <Form.Item
+    className={styles.formItem}
+      label={label}
+      name={name}
+      rules={rules}
+    >
+      {children}
+    </Form.Item>
   );
 };
