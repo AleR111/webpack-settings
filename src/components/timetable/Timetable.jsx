@@ -6,6 +6,8 @@ import { Arrows } from "./arrows";
 export const Timetable = () => {
   const [startPoint, setStartPoint] = useState(null);
 
+  const [coordinatesData, setCoordinatesData] = useState([]);
+
   const renderCoordinates = useCallback(() => {
     const zoomed = ({ transform }) => {
       d3.select("#zoom-box")
@@ -21,16 +23,27 @@ export const Timetable = () => {
 
   console.log("render");
 
-  const addArrow = ({ x, y }) => {};
-
   const handler = (e) => {
     const cell = e.target;
-    console.log(cell);
-    setStartPoint({
-      x: cell.getAttribute("x"),
-      y: cell.getAttribute("y"),
-    });
-    console.log(startPoint);
+    if (!startPoint) {
+      setStartPoint({
+        x: +cell.getAttribute("x") + 10,
+        y: +cell.getAttribute("y") + 10,
+      });
+    } else {
+      setCoordinatesData((state) => {
+        return [
+          ...state,
+          {
+            x1: startPoint.x,
+            y1: startPoint.y,
+            x2: +cell.getAttribute("x") + 10,
+            y2: +cell.getAttribute("y") + 10,
+          },
+        ];
+      });
+      setStartPoint(null);
+    }
   };
 
   useEffect(() => {
@@ -44,7 +57,7 @@ export const Timetable = () => {
           <g onClick={(e) => handler(e)} id="coordinates" fill="#ece62473">
             <Coordinates />
           </g>
-          <Arrows />
+          <Arrows coordinatesData={coordinatesData} />
         </g>
       </svg>
     </div>

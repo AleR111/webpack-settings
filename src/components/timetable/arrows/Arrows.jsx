@@ -1,6 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 
-export const Arrows = () => {
+export const Arrows = memo(({ coordinatesData }) => {
+  console.log(coordinatesData);
+  console.log("render arrow");
   return (
     <g id="arrows">
       <defs>
@@ -8,7 +10,7 @@ export const Arrows = () => {
           id="arrowhead"
           markerWidth="10"
           markerHeight="7"
-          refX="0"
+          refX="8.5"
           refY="3.5"
           orient="auto"
         >
@@ -16,15 +18,20 @@ export const Arrows = () => {
         </marker>
       </defs>
       <g id="arrows-line">
-        <line
-          x1="100"
-          y1="5"
-          x2="100"
-          y2="500"
-          stroke="red"
-          markerEnd="url(#arrowhead)"
-        />
+        {coordinatesData.map((el, index) => {
+          return (
+            <line
+              key={index}
+              x1={el.x1}
+              y1={el.y1}
+              x2={el.x2}
+              y2={el.y2}
+              stroke="red"
+              markerEnd="url(#arrowhead)"
+            />
+          );
+        })}
       </g>
     </g>
   );
-};
+});
