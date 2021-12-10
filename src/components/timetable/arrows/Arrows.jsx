@@ -3,6 +3,7 @@ import React, { memo } from "react";
 export const Arrows = memo(({ coordinatesData }) => {
   console.log(coordinatesData);
   console.log("render arrow");
+
   return (
     <g id="arrows">
       <defs>

@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import * as d3 from "d3";
-import { Coordinates } from "./coordinates";
-import { Arrows } from "./arrows";
+import { Coordinates, Arrows, Circles } from "./";
 
 export const Timetable = () => {
   const [startPoint, setStartPoint] = useState(null);
@@ -14,6 +13,7 @@ export const Timetable = () => {
         .attr("transform", transform)
         .attr("stroke-width", 0.1 / transform.k);
       d3.select("#arrows-line").attr("stroke-width", 2 / transform.k);
+      d3.select("#circles").attr("stroke-width", 2 / transform.k);
     };
 
     const zoom = d3.zoom().scaleExtent([1, 200]).on("zoom", zoomed);
@@ -58,6 +58,7 @@ export const Timetable = () => {
             <Coordinates />
           </g>
           <Arrows coordinatesData={coordinatesData} />
+          <Circles startPoint={startPoint} />
         </g>
       </svg>
     </div>
