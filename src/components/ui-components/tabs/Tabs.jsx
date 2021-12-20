@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Box, Tab, Tabs as TabsUI, styled } from "@mui/material";
 import { TabContext, TabPanel } from "@mui/lab";
-import "./tabs.module.less";
+import styles from "./tabs.module.less";
 
 const StyledTabs = styled((props) => <TabsUI {...props} />)({
   minHeight: "unset",
@@ -26,7 +26,7 @@ const StyledTab = styled((props) => <Tab {...props} />)({
   "&.Mui-selected": {
     color: "#fff",
     backgroundColor: "#FF630E",
-  }
+  },
 });
 
 export const Tabs = ({ oneName, twoName, onePanel, twoPanel }) => {
@@ -44,8 +44,12 @@ export const Tabs = ({ oneName, twoName, onePanel, twoPanel }) => {
           <StyledTab label={twoName} value="2" />
         </StyledTabs>
       </Box>
-      <TabPanel value="1">{onePanel}</TabPanel>
-      <TabPanel value="2">{twoPanel}</TabPanel>
+      <TabPanel sx={{ padding: "16px 0" }} value="1">
+        {onePanel}
+      </TabPanel>
+      <TabPanel sx={{ padding: "16px 0" }} value="2">
+        {twoPanel}
+      </TabPanel>
     </TabContext>
   );
 };

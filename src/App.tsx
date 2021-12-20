@@ -8,6 +8,7 @@ import {
   ApplyButton,
   CancelButton,
   Tabs,
+  Item,
 } from "./components/ui-components";
 // import { Timetable } from "./components";
 
@@ -24,8 +25,8 @@ export const App: React.FC = () => {
         <Tabs
           oneName="one"
           twoName="two"
-          onePanel="1 panel"
-          twoPanel="2 panel"
+          onePanel={<Item content={"lolololo"} />}
+          twoPanel={<Item content={"dfbdf"} />}
         />
       </div>
 
