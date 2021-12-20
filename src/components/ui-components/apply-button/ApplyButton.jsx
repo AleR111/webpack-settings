@@ -1,11 +1,17 @@
-import * as React from 'react';
-import { Button } from '@mui/material';
-import styles from './applyButton.module.less'
+import * as React from "react";
+import { Button } from "@mui/material";
+import styles from "./applyButton.module.less";
 
-export const ApplyButton = () => {
+export const ApplyButton = ({ onClick, text }) => {
   return (
-    <Button className={styles.button} variant="contained" disableElevation>
-      Применить
+    <Button
+      onClick={onClick}
+      className={styles.button}
+      variant="contained"
+      disableElevation
+      sx={{ textTransform: "none" }}
+    >
+      {text}
     </Button>
   );
-}
+};

@@ -10,6 +10,7 @@ import {
   Tabs,
   Item,
   Popover,
+  Modal,
 } from "./components/ui-components";
 import { Button } from "@mui/material";
 // import { Timetable } from "./components";
@@ -21,14 +22,16 @@ export const App = () => {
     setContent(event.currentTarget.id);
     setAnchorEl(event.currentTarget);
   };
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
   return (
     <div className={styles.container}>
       <AddButton />
       <SettingsButton />
       <DeleteButton />
       <CloseButton />
-      <ApplyButton />
-      <CancelButton />
+      <ApplyButton text={"apply"} />
+      <CancelButton text={"cancel"} />
       <div style={{ width: "400px" }}>
         <Tabs
           oneName="one"
@@ -51,6 +54,21 @@ export const App = () => {
         setAnchorEl={setAnchorEl}
         content={content}
       />
+      <Button onClick={handleOpen}>Open modal</Button>
+      <Modal
+        openModal={open}
+        setOpenModal={setOpen}
+        handleAplly={() => console.log(2212)}
+      >
+        <div style={{ width: "400px" }}>
+        <Tabs
+          oneName="one"
+          twoName="two"
+          onePanel={<Item content={"lolololo"} />}
+          twoPanel={<Item content={"dfbdf"} />}
+        />
+      </div>
+      </Modal>
       {/* <Timetable /> */}
     </div>
   );
