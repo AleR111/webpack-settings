@@ -11,6 +11,7 @@ import {
   Item,
   Popover,
   Modal,
+  Input,
 } from "./components/ui-components";
 import { Button } from "@mui/material";
 // import { Timetable } from "./components";
@@ -18,6 +19,7 @@ import { Button } from "@mui/material";
 export const App = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [content, setContent] = useState(null);
+  const [value, setValue] = useState("");
   const handleClick = (event) => {
     setContent(event.currentTarget.id);
     setAnchorEl(event.currentTarget);
@@ -61,14 +63,19 @@ export const App = () => {
         handleAplly={() => console.log(2212)}
       >
         <div style={{ width: "400px" }}>
-        <Tabs
-          oneName="one"
-          twoName="two"
-          onePanel={<Item content={"lolololo"} />}
-          twoPanel={<Item content={"dfbdf"} />}
-        />
-      </div>
+          <Tabs
+            oneName="one"
+            twoName="two"
+            onePanel={<Item content={"lolololo"} />}
+            twoPanel={<Item content={"dfbdf"} />}
+          />
+        </div>
       </Modal>
+      <Input
+        label={"qwe"}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
       {/* <Timetable /> */}
     </div>
   );
