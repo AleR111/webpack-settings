@@ -14,6 +14,7 @@ import {
   Input,
   Select,
   Search,
+  Checkbox,
 } from "./components/ui-components";
 import { Button } from "@mui/material";
 // import { Timetable } from "./components";
@@ -90,6 +91,7 @@ export const App = () => {
         placeholder={"lololo"}
         onSubmit={(e) => e.preventDefault()}
       />
+      <Checkbox onChange={(e) => console.log(e.target.checked)} />
       {/* <Timetable /> */}
     </div>
   );

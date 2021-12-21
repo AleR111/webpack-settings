@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Paper, InputBase, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
