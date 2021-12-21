@@ -11,7 +11,6 @@ const StyledTextField = styled((props) => <TextField {...props} />)({
 
   "& .MuiOutlinedInput-root": {
     "&.Mui-focused fieldset": {
-      borderColor: "red",
       border: `1px solid ${inputColor}`,
     },
   },
