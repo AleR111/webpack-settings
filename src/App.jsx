@@ -12,7 +12,8 @@ import {
   Popover,
   Modal,
   Input,
-  Select
+  Select,
+  Search,
 } from "./components/ui-components";
 import { Button } from "@mui/material";
 // import { Timetable } from "./components";
@@ -77,8 +78,18 @@ export const App = () => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      <Select itemList={[1,2,3,4,4]} label='dfsdfs' value={value}
-        onChange={(e) => setValue(e.target.value)}/>
+      <Select
+        itemList={[1, 2, 3, 4, 4]}
+        label="dfsdfs"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <Search
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder={"lololo"}
+        onSubmit={(e) => e.preventDefault()}
+      />
       {/* <Timetable /> */}
     </div>
   );
