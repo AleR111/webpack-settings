@@ -1,12 +1,12 @@
 import * as React from "react";
 import { IconButton } from "@mui/material";
 import { DeleteForeverOutlined } from "@mui/icons-material";
-import styles from './deleteButton.module.less'
+import { styledIconButton } from "../styles";
 
 export const DeleteButton = () => {
   return (
     <IconButton>
-      <DeleteForeverOutlined className={styles.button} />
+      <DeleteForeverOutlined sx={styledIconButton} />
     </IconButton>
   );
-}
+};

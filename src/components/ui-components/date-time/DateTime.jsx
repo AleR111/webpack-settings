@@ -2,6 +2,7 @@ import * as React from "react";
 import { TextField } from "@mui/material";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { LocalizationProvider, DateTimePicker } from "@mui/lab";
+import { styledTextField } from "../styles";
 
 export const DateTime = (props) => {
   return (
@@ -14,21 +15,7 @@ export const DateTime = (props) => {
         views={["day", "hours"]}
         ampm={false}
         renderInput={(props) => (
-          <TextField
-            sx={{
-              "& label.Mui-focused": {
-                color: "#CCCCCC",
-              },
-
-              "& .MuiOutlinedInput-root": {
-                "&.Mui-focused fieldset": {
-                  border: `1px solid #CCCCCC`,
-                },
-              },
-            }}
-            fullWidth
-            {...props}
-          />
+          <TextField sx={styledTextField} fullWidth {...props} />
         )}
         label="дата/время"
       />

@@ -5,25 +5,11 @@ import {
   FormControl,
   Select as SelectUI,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
-
-const inputColor = "#CCCCCC";
-
-const StyledFormControl = styled((props) => <FormControl {...props} />)({
-  "& label.Mui-focused": {
-    color: inputColor,
-  },
-
-  "& .MuiOutlinedInput-root": {
-    "&.Mui-focused fieldset": {
-      border: `1px solid ${inputColor}`,
-    },
-  },
-});
+import { styledFormControl } from "../styles";
 
 export const Select = ({ itemList, label, value, onChange }) => {
   return (
-    <StyledFormControl fullWidth>
+    <FormControl sx={styledFormControl} fullWidth>
       <InputLabel id="select-label">{label}</InputLabel>
       <SelectUI
         labelId="select-label"
@@ -42,6 +28,6 @@ export const Select = ({ itemList, label, value, onChange }) => {
           );
         })}
       </SelectUI>
-    </StyledFormControl>
+    </FormControl>
   );
 };

@@ -4,7 +4,7 @@ import { Popover as PopoverUI, Typography } from "@mui/material";
 export const Popover = ({
   anchorEl,
   setAnchorEl,
-  content,
+  children,
   anchorOrigin = {
     vertical: "bottom",
     horizontal: "left",
@@ -29,7 +29,7 @@ export const Popover = ({
         anchorPosition={anchorPosition}
         sx={{ mt: "4px" }}
       >
-        <Typography sx={{ p: 2 }}>{content}</Typography>
+        <Typography sx={{ p: 2 }}>{children}</Typography>
       </PopoverUI>
     </div>
   );

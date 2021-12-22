@@ -1,12 +1,12 @@
 import * as React from "react";
 import { IconButton } from "@mui/material";
 import { Close } from "@mui/icons-material";
-import styles from './closeButton.module.less'
+import { styledIconButton } from "../styles";
 
 export const CloseButton = () => {
   return (
     <IconButton>
-      <Close className={styles.button} />
+      <Close sx={styledIconButton} />
     </IconButton>
   );
-}
+};

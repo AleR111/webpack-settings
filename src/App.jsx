@@ -15,7 +15,7 @@ import {
   Select,
   Search,
   Checkbox,
-  DateTime
+  DateTime,
 } from "./components/ui-components";
 import { Button } from "@mui/material";
 // import { Timetable } from "./components";
@@ -39,14 +39,14 @@ export const App = () => {
       <SettingsButton />
       <DeleteButton />
       <CloseButton />
-      <ApplyButton text={"apply"} />
-      <CancelButton text={"cancel"} />
+      <ApplyButton>apply</ApplyButton>
+      <CancelButton>Cancel</CancelButton>
       <div style={{ width: "400px" }}>
         <Tabs
           oneName="one"
           twoName="two"
-          onePanel={<Item content={"lolololo"} />}
-          twoPanel={<Item content={"dfbdf"} />}
+          onePanel={<Item>jujujuj</Item>}
+          twoPanel={<Item children={"dfbdf"} />}
         />
       </div>
       <Button id="123" variant="contained" onClick={handleClick}>
@@ -61,7 +61,7 @@ export const App = () => {
       <Popover
         anchorEl={anchorEl}
         setAnchorEl={setAnchorEl}
-        content={content}
+        children={content}
       />
       <Button onClick={handleOpen}>Open modal</Button>
       <Modal
@@ -96,10 +96,12 @@ export const App = () => {
         onSubmit={(e) => e.preventDefault()}
       />
       <Checkbox onChange={(e) => console.log(e.target.checked)} />
-      <DateTime value={valueDate}
+      <DateTime
+        value={valueDate}
         onChange={(newValue) => {
           setValueDate(newValue);
-        }}/>
+        }}
+      />
       {/* <Timetable /> */}
     </div>
   );

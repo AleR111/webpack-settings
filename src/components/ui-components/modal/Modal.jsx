@@ -23,10 +23,10 @@ export const Modal = ({ openModal, setOpenModal, handleAplly, children }) => {
                   handleClose();
                   handleAplly();
                 }}
-                text={"Применить"}
+                children={"Применить"}
               />
             </div>
-            <CancelButton onClick={handleClose} text={"Отменить"} />
+            <CancelButton onClick={handleClose} children={"Отменить"} />
           </div>
         </Box>
       </ModalUI>
