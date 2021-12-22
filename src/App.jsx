@@ -15,6 +15,7 @@ import {
   Select,
   Search,
   Checkbox,
+  DateTime
 } from "./components/ui-components";
 import { Button } from "@mui/material";
 // import { Timetable } from "./components";
@@ -23,6 +24,9 @@ export const App = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [content, setContent] = useState(null);
   const [value, setValue] = useState("");
+  const curentDate = new Date().setMinutes(0);
+
+  const [valueDate, setValueDate] = React.useState(curentDate);
   const handleClick = (event) => {
     setContent(event.currentTarget.id);
     setAnchorEl(event.currentTarget);
@@ -92,6 +96,10 @@ export const App = () => {
         onSubmit={(e) => e.preventDefault()}
       />
       <Checkbox onChange={(e) => console.log(e.target.checked)} />
+      <DateTime value={valueDate}
+        onChange={(newValue) => {
+          setValueDate(newValue);
+        }}/>
       {/* <Timetable /> */}
     </div>
   );
